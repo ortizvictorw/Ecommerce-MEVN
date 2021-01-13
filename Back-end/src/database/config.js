@@ -7,6 +7,5 @@ const coneccionDB = ()=>{
     })
     .then(db =>console.log('conexion exitosa a Mongodb'))
     .catch(err => console.error(err));
-
 }
 module.exports = coneccionDB;

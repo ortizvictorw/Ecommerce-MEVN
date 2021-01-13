@@ -2,9 +2,19 @@ const mongoose = require ('mongoose');
 const {Schema} = mongoose;
 
 const Producto = new Schema({
-    titulo:String,
-    descripcion:String,
-    precio:Number,
+    titulo:
+    {
+    type:String
+    },
+
+    descripcion:
+    {
+        type:String
+    },
+
+    precio:{
+        type:Number
+    },
     imagen:{
         type:String,
         default:`../../public/images/default.jpeg`
