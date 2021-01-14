@@ -7,10 +7,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require ('cors');
 
+
+
+
 //** ROUTERS **/
 const indexRouter = require('./routes/index');
 //** API ROUTERS **/
-const ApiproductosRouter = require('./routes/productos');
+const ApiProductosRouter = require('./routes/productos');
+const ApiUsuariosRouter = require('./routes/usuarios');
 
 
 //** EJECUCION DE EXPRESS **/
@@ -29,6 +33,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 //** RUTAS **/
 app.use('/', indexRouter);
 //** RUTAS API**/
-app.use('/api/productos', ApiproductosRouter);
+app.use('/api/productos', ApiProductosRouter);
+app.use('/api/usuarios', ApiUsuariosRouter);
 
 module.exports = app;
