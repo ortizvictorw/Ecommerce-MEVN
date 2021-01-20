@@ -9,19 +9,24 @@ const cors = require ('cors');
 
 
 
-
 //** ROUTERS **/
 const indexRouter = require('./routes/index');
 //** API ROUTERS **/
 const ApiProductosRouter = require('./routes/productos');
 const ApiUsuariosRouter = require('./routes/usuarios');
 
+//** REQUIRE DE CREACION DE ROLES AL INICIO **/
+const CreateRole = require ('./libs/seteoInicial')
+
 
 //** EJECUCION DE EXPRESS **/
 const app = express();
 
+
 //** CONECCION CON MONGO DB **/
 coneccionDB();
+//** CREACION DE ROLES AL INICIO **/
+CreateRole();
 
 //** MEDDLEWARES **/
 app.use(logger('dev'));
@@ -35,5 +40,6 @@ app.use('/', indexRouter);
 //** RUTAS API**/
 app.use('/api/productos', ApiProductosRouter);
 app.use('/api/usuarios', ApiUsuariosRouter);
+
 
 module.exports = app;

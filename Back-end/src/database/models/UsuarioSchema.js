@@ -1,36 +1,59 @@
 const mongoose = require ('mongoose');
 const {Schema} = mongoose;
-const Bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 
-const Usuario = new Schema({
+const UsuarioSchema = new Schema(
+    {
         nombre:
         {
-            type:String
+            type:String,
+            unique:true,
+            required:true
         },
         email:
         {
-            type:String
+            type:String,
+            unique:true,
+            required:true
         },
-        nivel:
-        {
-            type:String
-        },
+        roles:
+        [
+            {
+                ref:"Role",
+                type:Schema.Types.ObjectId
+            }
+        ],
         password:
         {
-            type:String
+            type:String,
+            required:true
         },
         avatar:
         {
             type:String,
             default:`../../public/images/default.jpeg`
         }
-})
-Usuario.pre("save", function(next) {
-    this.password = Bcrypt.hashSync(this.password, 10);
+        
+    },
+    {
+      timestamps: true,
+      versionKey: false,
+    }
+        
+       
+)
+
+UsuarioSchema.pre("save", function(next) {
+    this.password = bcrypt.hashSync(toString(this.password), 10);
     next();
 });
 
+UsuarioSchema.statics.comparePassword = async (password, receivedPassword) => {
+    return await bcrypt.compare(password, receivedPassword)
+  }
 
 
-module.exports = mongoose.model('Usuario', Usuario);
+
+
+module.exports = mongoose.model('Usuario', UsuarioSchema);
