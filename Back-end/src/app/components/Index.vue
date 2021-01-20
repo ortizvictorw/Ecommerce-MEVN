@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,7 +52,7 @@
               >Mi Carrito <i class="fas fa-shopping-cart"></i>
             </a>
           </ul>
-          <form @submit.prevent="listar" class="d-flex">
+          <form  class="d-flex">
             <input
               class="form-control me-2"
               type="search"
@@ -71,6 +72,7 @@
           src="https://files.cdn.printful.com/o/upload/variant-image/12/123eded87f4c54cee78f7c299e517fd4_l"
           class="card-img-top"
           alt="..."
+          
         />
         <div class="card-body">
           <h5 class="card-title">Remera Dama</h5>
@@ -140,28 +142,15 @@
       <button type="button" class="btn btn-secondary btn-md-block my-3">
         Pagar
       </button>
-      <div>
-        <img src="/../public/images/default.jpeg" alt="Imagen por default">
-        
-        <br>
-        
-      </div>
+      <img  v-bind:src="imagen" alt="imagen por default">
     </div>
   </div>
 </template>
 
 // Mostrar imagen
- <script>
- const app = new Vue({
-    el:'#app',
-   data: {
-     src: 'public/images/default.jpeg'
-     
-   },
- });
- 
- </script>
-
+<script>
+  
+</script>
 
 // Llamo a axios //
 

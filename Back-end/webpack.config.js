@@ -18,10 +18,17 @@ module.exports = {
             test:/\.vue/,
             loader:'vue-loader'
         },
-        
+        {
+            test: /\.(png|jpe?g|gif)$/i,
+            use: [
+              {
+                loader: 'file-loader',
+              },
+            ],
+          },
     ]
     },
     plugins: [
         new  VueLoaderPlugin()
-    ]
+    ],
 };

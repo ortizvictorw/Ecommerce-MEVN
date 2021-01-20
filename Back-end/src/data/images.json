@@ -1,0 +1,18 @@
+{
+    "Vestimenta" : [
+        {
+            "remeraDama":"https://files.cdn.printful.com/o/upload/variant-image/12/123eded87f4c54cee78f7c299e517fd4_l"
+        },
+        {
+            "pantalon":"https://files.cdn.printful.com/o/upload/variant-image-jpg/89/89140b7773b9183565e79267508221e7_l"
+        },
+        {
+            "remeraHombre":"https://files.cdn.printful.com/o/upload/variant-image/2e/2ecfce77feb3657d328119783492dc5e_l"
+        },
+        {
+            "canguroHombre":"https://files.cdn.printful.com/o/upload/variant-image/40/40a573d12e9fa5f5c0228d132bfd7f07_l"
+        }
+
+    ]
+
+}
