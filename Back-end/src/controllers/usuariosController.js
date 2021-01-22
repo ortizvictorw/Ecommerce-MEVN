@@ -1,6 +1,6 @@
 //**REQUERIR EL MODELO DE LA BASE DE DATOS**/
 const UsuarioSchema = require ('../database/models/UsuarioSchema');
-const {sign} = require ('jsonwebtoken');
+const {sign, JsonWebTokenError} = require ('jsonwebtoken');
 const Role = require('../database/models/Role');
 
 
@@ -30,6 +30,9 @@ module.exports = {
         newUsuario.roles = [role._id]
       }
 
+    // encrypting password
+    newUsuario.password = await UsuarioSchema.encryptPassword(newUsuario.password);
+
       const usuarioGuardado = await newUsuario.save();
       console.log(usuarioGuardado)
       
@@ -45,47 +48,46 @@ module.exports = {
           },
 
     login:async(req,res,next)=>{
+
       //Request body email can be an email or username
-    const userFound = await UsuarioSchema.findOne({ email: req.body.email }).populate(
-      "roles"
-    );
+    const userFound = await UsuarioSchema.findOne(
+      { email: req.body.email })
+      .populate("roles");
 
-    if (!userFound) return res.status(400).json({ message: "User Not Found" });
+      if (!userFound){
+        return res.status(400).json({ message: "No se encuentra el usuario" });
+      } 
+    
+      const matchPassword = await UsuarioSchema.comparePassword(
+        req.body.password,
+        userFound.password
+      );
 
-    const matchPassword = await UsuarioSchema.comparePassword(
-      req.body.password,
-      userFound.password
-    );
-   
-     
-  console.log(matchPassword)
-  
-  
-      if (!matchPassword)
-        return res.status(401).json({
-          token: null,
-          message: "Invalid Password",
-        });
+      if (!matchPassword){
+        return res.status(401).json({ token:null, message: "Password incorrecto" });
+      } 
 
-      const token = sign({id:usuarioGuardado._id},`${process.env.SECRET}`,{
-       expiresIn: 86400 //24Hs
-      })
+     /**GENERACION DEL TOKEN**/
+     const token = sign({id:userFound._id},`${process.env.SECRET}`,{
+      expiresIn: 86400 //24Hs
+     })
 
-  
-    },
+    res.json({token})
+},
 
     editar:async(req,res,next)=>{
 
       await UsuarioSchema.findByIdAndUpdate(req.params.id, req.body);
       res.json({
-        status: 'UsuarioSchema Editado'
+        status: 'Usuario Editado'
       });
 
         },
     eliminar:async(req,res,next)=>{
   await UsuarioSchema.findByIdAndRemove(req.params.id);
   res.json({
-    status: 'UsuarioSchema Eliminado'
+    status: 'Usuario Eliminado'
       });
         }
+
 }
