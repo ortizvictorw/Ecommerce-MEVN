@@ -66,7 +66,7 @@ module.exports ={
       validacionDeRoles:async(req, res, next) => {
         const ROLES = await Role.find()
         const rolNOmbre = ROLES.map(rol => rol.nombre)
-        console.log(rolNOmbre)
+       
         if (req.body.roles) {
           for (let i = 0; i < req.body.roles.length; i++) {
             if (!rolNOmbre.includes(req.body.roles[i])) {
