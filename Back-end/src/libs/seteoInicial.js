@@ -16,7 +16,7 @@ const Role = require ('../database/models/Role');
         new Role({nombre:"vendedor"}).save(),
         new Role({nombre:"administrador"}).save(),   
     ])   
-    console.log(valoresRoles)
+
 } 
 
 module.exports = crearRoles;

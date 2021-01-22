@@ -14,7 +14,6 @@ module.exports ={
             //recibimos un token
         let token = req.headers["x-access-token"];
 
-        // console.log(token)
  
              //si no existe 
             if(!token){
@@ -48,9 +47,9 @@ module.exports ={
         async (req, res, next) => {
         try {
           const user = await UsuarioSchema.findById(req.userId);
-          console.log(user)
+         
           const roles = await Role.find({ _id: { $in: user.roles } });
-            console.log(roles)
+            
           for (let i = 0; i < roles.length; i++) {
             if (roles[i].nombre === "administrador") {
               next();

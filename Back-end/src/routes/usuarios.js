@@ -3,10 +3,10 @@ const router = express.Router();
 const usuariosController = require ('../controllers/usuariosController')
 const { verificacionToken , esAdministrador ,validacionDeRoles} = require('../middlewares/index')
 /* GET a los usuarios -- endpoint:http://localhost:3000/api/usuarios */
-router.get('/',[verificacionToken,esAdministrador], usuariosController.listar);
+router.get('/', usuariosController.listar);
 
 /* POST a los usuarios -- endpoint:http://localhost:3000/api/usuarios */
-router.post('/',validacionDeRoles, usuariosController.register);
+router.post('/', usuariosController.register);
 
 /* PUT al usuario -- endpoint:http://localhost:3000/api/usuarios */
 router.put('/:id',[verificacionToken,esAdministrador], usuariosController.editar);

@@ -34,7 +34,7 @@ module.exports = {
     newUsuario.password = await UsuarioSchema.encryptPassword(newUsuario.password);
 
       const usuarioGuardado = await newUsuario.save();
-      console.log(usuarioGuardado)
+      
       
       /**GENERACION DEL TOKEN**/
       const token = sign({id:usuarioGuardado._id},`${process.env.SECRET}`,{
