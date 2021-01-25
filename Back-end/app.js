@@ -1,6 +1,6 @@
 //** MODULOS REQUERIDOS **/
 require ('dotenv').config();
-const coneccionDB = require ('./database/config')
+const coneccionDB = require ('./src/database/config')
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -11,13 +11,13 @@ const cors = require ('cors');
 
 
 //** ROUTERS **/
-const indexRouter = require('./routes/index');
+const indexRouter = require('./src/routes/index');
 //** API ROUTERS **/
-const ApiProductosRouter = require('./routes/productos');
-const ApiUsuariosRouter = require('./routes/usuarios');
+const ApiProductosRouter = require('./src/routes/productos');
+const ApiUsuariosRouter = require('./src/routes/usuarios');
 
 //** REQUIRE DE CREACION DE ROLES AL INICIO **/
-const CreateRole = require ('./libs/seteoInicial')
+const CreateRole = require ('./src/libs/seteoInicial')
 
 
 //** EJECUCION DE EXPRESS **/
