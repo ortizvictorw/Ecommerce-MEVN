@@ -9,6 +9,7 @@ const cors = require ('cors');
 
 
 
+
 //** ROUTERS **/
 const indexRouter = require('./routes/index');
 //** API ROUTERS **/
@@ -29,6 +30,7 @@ coneccionDB();
 CreateRole();
 
 //** MEDDLEWARES **/
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
