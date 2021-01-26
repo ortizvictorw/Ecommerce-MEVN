@@ -1,5 +1,5 @@
 //**REQUERIR EL MODELO DE LA BASE DE DATOS**/
-const Producto = require ('../database/models/ProductosSchema');
+const Producto = require ('../../database/models/ProductosSchema');
 
 module.exports = {
     listar : async(req, res, next)=> {
