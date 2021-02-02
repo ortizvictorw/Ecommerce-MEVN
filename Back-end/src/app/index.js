@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import App from './Index.vue';
-//import Img from './../../public/images/default.jpeg';
-//  console.log(img);
+import router from "./router.js";
+
 
 new Vue({
+    router,
     render: m => m(App)
 }).$mount('#app')
