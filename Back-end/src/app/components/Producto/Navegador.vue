@@ -13,7 +13,7 @@
             >Altas</a
           >
           <a
-            class="nav-item nav-link"
+            class="nav-item nav-link "
             id="nav-profile-tab"
             data-toggle="tab"
             href=""
@@ -23,7 +23,7 @@
             >Bajas</a
           >
           <a
-            class="nav-item nav-link"
+            class="nav-item nav-link "
             id="nav-contact-tab"
             data-toggle="tab"
             href=""

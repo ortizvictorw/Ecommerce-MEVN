@@ -8,9 +8,9 @@
           :alt="producto.titulo"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ producto.titulo }}</h5>
+          <h5 class="card-title ">{{ producto.titulo }}</h5>
           <h6>${{ producto.precio }}</h6>
-          <p class="card-text">{{ producto.descripcion }}</p>
+          <p class="card-text ">{{ producto.descripcion }}</p>
           <a href="#" class="btn btn-primary">Agregar a Carrito</a>
         </div>
         <div class="p-3 justify-content-between">
@@ -22,12 +22,102 @@
             Eliminar producto
           </button>
           <button
-            @click="editarProd(producto._id)"
+            @click="editarProd(producto.titulo)"
             class="btn btn-warning"
             type="submit"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
           >
             Modificar producto
           </button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              <strong>Editar</strong>
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post" enctype="multipart/form-data" name="">
+              <label class="form-label"
+                ><strong>Nombre del producto:</strong></label
+              >
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-describedby="basic-addon3"
+                  placeholder="Nombre del producto"
+                  required
+                />
+              </div>
+              <label class="form-label"><strong>Precio:</strong></label>
+              <div class="input-group mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Precio"
+                  min="0"
+                  required
+                />
+              </div>
+              <label class="form-label"
+                ><strong>Descripción del producto:</strong></label
+              >
+              <div class="input-group">
+                <textarea
+                  class="form-control"
+                  aria-label="With textarea"
+                  rows="5"
+                  cols="10"
+                  placeholder="Describa el producto..."
+                  required
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="file" class="form-label mt-3"
+                  >Seleccionar imagenes</label
+                >
+                <input
+                  class="form-control form-control-sm"
+                  id="file"
+                  type="file"
+                  ref="file"
+                  v-on:change="subirImg()"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button v-on:click="enviar()" class="btn btn-primary">
+              Cargar
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -81,6 +171,9 @@ export default {
           }
         );
       }
+    },
+    editarProd(id,titulo,precio,descripcion) {
+      console.log(titulo);
     },
   },
 };

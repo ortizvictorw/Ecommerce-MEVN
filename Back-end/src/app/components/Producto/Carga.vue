@@ -25,31 +25,30 @@
             </div>
             <label  class="form-label"><strong>Descripción del producto:</strong></label>
             <div class="input-group">
-                <textarea class="form-control" aria-label="With textarea" rows="5" cols="10" placeholder="Describa el producto..." required></textarea>
+                <textarea class="form-control" aria-label="With textarea" rows="5" cols="10" placeholder="Describa el producto..."  required></textarea>
             </div>
             <div class="mb-3">
                 <label for="file" class="form-label mt-3">Seleccionar imagenes</label>
-                <input class="form-control form-control-sm" id="file" type="file" ref="file" v-on:change="subirImg()"  required />
+                <input class="form-control form-control-sm" id="file" type="file" ref="file"  required />
             </div>
               <button v-on:click="enviar()" class="btn btn-secondary">Cargar</button>
           </form>
         </div>
   </div>
 </template>
-// <script>
-// export default {
-//     data(){
-//         return{
-//             archivo: ''
-//         }
-//     },
-//     methods:{
-//         subirImg(){
-//             this.file = this.$refs.file.files[0]
-//         }
-//     }
-// }
-// </script>
+<script>
+import Vue from "vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
+
+Vue.use(VueAxios, axios);
+
+export default {
+   name:'Carga',
+  
+   
+}
+</script>
 
 
 <style>
