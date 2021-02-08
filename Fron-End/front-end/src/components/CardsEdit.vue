@@ -39,8 +39,6 @@ export default {
   },
   methods: {
     leerApi() {
-       const urlLocal = 'http://localhost:3000/api/productos'
-      const urlServidor = `https://mini-ecommerce-api.herokuapp.com/api/productos`
       axios
         .get('https://mini-ecommerce-api.herokuapp.com/api/productos')
         .then(res => {

@@ -88,8 +88,6 @@ this.producto.imagen = e.target.files[0]
       formData.append('descripcion',this.producto.descripcion )
       formData.append('precio',this.producto.precio )
       const bodyJson = formData 
-      const urlLocal = 'http://localhost:3000/api/productos'
-      const urlServidor = `https://mini-ecommerce-api.herokuapp.com/api/productos`
       const token = localStorage.getItem('token')
       const baseURL = 'https://mini-ecommerce-api.herokuapp.com/api/productos'
       await axios(
@@ -107,8 +105,6 @@ this.producto.imagen = e.target.files[0]
     },
 
       guardarAlert (){
-      const urlLocalVue = 'http://localhost:8080'
-      const urlServidorVue = `https://mini-ecommerce-api.herokuapp.com`
       this.alertGuardar=true
       setInterval(()=>{this.alert=false},300)
       setInterval(()=>{window.location.href = `https://mini-ecommerce-api.herokuapp.com/Administracion`;},1000)

@@ -86,8 +86,6 @@ this.producto.imagen = e.target.files[0]
       leerApiId() {
        const id= localStorage.getItem('idPRoducto')
         this.id = id
-        const urlLocal = 'http://localhost:3000/api/productos'
-      const urlServidor = `https://mini-ecommerce-api.herokuapp.com/api/productos`
        axios(
         {
         method: 'GET', 
@@ -112,8 +110,6 @@ console.log(this.producto)
       editarProductos(){  
       const token = localStorage.getItem('token')
       const id = localStorage.getItem('idPRoducto')
-      const urlLocal = 'http://localhost:3000/api/productos'
-      const urlServidor = `https://mini-ecommerce-api.herokuapp.com/api/productos`
       const baseURL = `https://mini-ecommerce-api.herokuapp.com/api/productos/${id}`
    
      const formData = new FormData()
@@ -139,8 +135,6 @@ console.log(this.producto)
     },
     editarAlert(){
       this.alertEditar=true
-      const urlLocalVue = 'http://localhost:8080'
-      const urlServidorVue = `https://mini-ecommerce-api.herokuapp.com`
       setInterval(()=>{this.alert=false},300)
       setInterval(()=>{window.location.href = `https://mini-ecommerce-api.herokuapp.com/Administracion`;},1000)
     }}}

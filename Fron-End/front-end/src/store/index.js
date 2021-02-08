@@ -38,9 +38,7 @@ export default createStore({
  /*POST A LOGIN*/   
   login({commit},usuario){
     const bodyJson = usuario
-    const urlLocal = 'http://localhost:3000/usuarios/login'
-      const urlServidor = `https://mini-ecommerce-api.herokuapp.com/usuarios/login`
-    const baseURL = 'https://mini-ecommerce-api.herokuapp.com/usuarios/login'
+    const baseURL = 'https://mini-ecommerce-api.herokuapp.com/api/usuarios/login'
         axios(
       { 
       method: 'POST', 
