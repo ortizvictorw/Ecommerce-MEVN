@@ -16,8 +16,7 @@ const ProductoSchema = new Schema({
         type:Number
     },
     imagen:{
-        type:String,
-        default:`../../public/images/default.jpeg`
+        type:String
     }
 })
 

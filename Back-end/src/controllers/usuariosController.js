@@ -10,7 +10,7 @@ module.exports = {
             
             res.json(usuarios);
           },
-
+          
     register: async(req,res,next)=>{
       const {nombre, password, avatar, roles, email} = req.body
       const newUsuario = new UsuarioSchema({
@@ -37,9 +37,7 @@ module.exports = {
       
       
       /**GENERACION DEL TOKEN**/
-      const token = sign({id:usuarioGuardado._id},`${process.env.SECRET}`,{
-       expiresIn: 86400 //24Hs
-      })
+      const token = sign({id:usuarioGuardado._id},`${process.env.SECRET}`)
 
         res.json({
           status: 'Usuario Registrado',
@@ -68,9 +66,7 @@ module.exports = {
       } 
 
      /**GENERACION DEL TOKEN**/
-     const token = sign({id:userFound._id},`${process.env.SECRET}`,{
-      expiresIn: 86400 //24Hs
-     })
+     const token = sign({id:userFound._id},`${process.env.SECRET}`)
 
     res.json({token})
 },
