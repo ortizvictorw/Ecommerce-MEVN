@@ -20,7 +20,7 @@ module.exports = {
  //console.log(req.files)
             const { titulo, descripcion, precio } = req.body
 
-            const producto = new ProductoSchema({
+            const producto = await new ProductoSchema({
                titulo,
                descripcion, 
                precio, 

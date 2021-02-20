@@ -23,6 +23,8 @@ router.get('/', productosController.listar);
 /* POST a los productos -- endpoint:http://localhost:3000/api/productos */
 router.post('/',upload.any(), /*[verificacionToken,esAdministrador],*/productosController.crear);
 
+
+
 /* PUT al producto -- endpoint:http://localhost:3000/api/productos */
 router.put('/:id',upload.any()/* ,[verificacionToken,esAdministrador] */, productosController.editar);
 

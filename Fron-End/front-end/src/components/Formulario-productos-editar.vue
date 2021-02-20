@@ -2,6 +2,9 @@
 <div class="wrapper fadeInDown">
  
   <div id="formContent">
+    <div v-if="alertEditar" class="alert alert-success animacion" role="alert">
+ PRODUCTO EDITADO
+</div>
     <div class="fadeIn first">
       
     </div>
@@ -39,13 +42,11 @@
 
 
 
-                  <input type="submit" class="fadeIn fourth" value="Editar" @click="editarAlert">
+                  <input type="submit" class="btn-dark btn" value="Editar" @click="editarAlert">
 
           </form>
        
-<div v-if="alertEditar" class="alert alert-success" role="alert">
- PRODUCTO EDITADO
-</div>
+
 
   </div>
 </div>
@@ -225,7 +226,7 @@ h2.inactive {
 
 h2.active {
   color: #0d0d0d;
-  border-bottom: 2px solid #a575e6;
+  border-bottom: 2px solid #474647;
 }
 
 
@@ -233,7 +234,7 @@ h2.active {
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #732a86;
+  background-color: #67706a;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -255,7 +256,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #4a175a;
+  background-color: #292929;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -427,6 +428,21 @@ li {
 }
 a {
   color: #a575e6;
+}
+.animacion{
+
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  
+}
+
+@keyframes example {
+  0%   { left:0px; top:0px;}
+  25%  {background-color:#1db33d44; left:0px; top:10px;}
+  100%  {left:0px; top:0px;}
+
+
 }
 </style>
 

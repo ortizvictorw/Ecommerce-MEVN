@@ -5,7 +5,10 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
-
+ <div v-if="alertGuardar" class="alert alert-primary animacion" role="alert">
+ PRODUCTO GUARDADO
+</div>
+    
     <!-- Icon -->
     <div class="fadeIn first">
      
@@ -41,16 +44,14 @@
                 cols="30">
                 </textarea>
 
-                <input @change="selecFile" type="file">
-            
+                <input class="my-3" @change="selecFile" type="file">
 
-                  <input type="submit" class="fadeIn fourth" value="Cargar" @click="guardarAlert">
+          <div class="row">
+                  <button type="submit" class=" col-8 mx-auto btn btn-dark my-3"  @click="guardarAlert">Cargar</button>
+          </div>
           </form>
        
- <div v-if="alertGuardar" class="alert alert-success" role="alert">
- PRODUCTO GUARDADO
-</div>
-    
+
   </div>
 </div>
 
@@ -402,6 +403,21 @@ li {
 }
 a {
   color: #a575e6;
+}
+.animacion{
+
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  
+}
+
+@keyframes example {
+  0%   { left:0px; top:0px;}
+  25%  {background-color:#1125d344; left:0px; top:10px;}
+  100%  {left:0px; top:0px;}
+
+
 }
 </style>
 

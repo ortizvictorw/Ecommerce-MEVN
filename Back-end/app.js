@@ -8,10 +8,13 @@ const logger = require('morgan');
 const cors = require ('cors');
 
 
+
 //** ROUTERS **/
 //** API ROUTERS **/
 const ApiProductosRouter = require('./src/routes/productos');
 const ApiUsuariosRouter = require('./src/routes/usuarios');
+const ApiPAgosRouter = require('./src/routes/pagos');
+
 
 //** REQUIRE DE CREACION DE ROLES AL INICIO **/
 const CreateRole = require ('./src/libs/seteoInicial')
@@ -43,7 +46,7 @@ app.use(cookieParser());
 //** RUTAS API**/
 app.use('/api/productos', ApiProductosRouter);
 app.use('/api/usuarios', ApiUsuariosRouter);
-
+app.use('/api/pagos', ApiPAgosRouter);
 
 // Middleware para Vue.js router modo history
 const history = require('connect-history-api-fallback');

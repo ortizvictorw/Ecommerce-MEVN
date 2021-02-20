@@ -2,6 +2,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
+    <Header />
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -15,7 +16,7 @@
     <form @submit.prevent="login(usuario)">
       <input v-model="usuario.email" type="text" class="fadeIn second mt-4"  placeholder="Email">
       <input v-model="usuario.password" type="password" class="fadeIn third"  placeholder="Password">
-      <input type="submit" @click="login2" class="fadeIn fourth" value="Log In">
+      <input type="submit" @click="login2" class="btn-dark" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->
@@ -28,8 +29,10 @@
 </template>
 
 <script>
+import Header from '../components/Header'
 import {mapActions} from 'vuex'
 export default {
+  components:{Header},
   data(){
     return{
       usuario:{
@@ -43,7 +46,8 @@ methods:{
 
 ...mapActions(['login']),
 login2 (){
-  setInterval(function(){ location.reload() },2000)
+  setInterval(()=>{window.location.href = `https://mini-ecommerce-api.herokuapp.com/Administracion`;},1000)
+  
 }
 
 },
@@ -142,7 +146,7 @@ h2.active {
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #732a86;
+  background-color: #42b983;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -164,7 +168,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #4a175a;
+  background-color: #1f5e41;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -297,13 +301,13 @@ input[type=password]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #7138c0;
+  background-color: #42b983;
   content: "";
   transition: width 0.2s;
 }
 
 .underlineHover:hover {
-  color: #632177;
+  color: #1d6142;
 }
 
 .underlineHover:hover:after{
@@ -335,6 +339,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #a575e6;
+  color:#42b983 ;
 }
 </style>

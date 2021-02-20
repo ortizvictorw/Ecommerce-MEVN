@@ -2,36 +2,15 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 
 export default createStore({
-  state: {
+  
     state:{
       token:null,
-      productosStorage:null,
-      alertGuardar:false,
-      alertEditar:false,
-      alertBorrar:false
-     
-    }
+    
   },
   mutations: {
     setToken(state,payload){
       state.token = payload
-    },
-    setProductosStorage(state,payload){
-      state.productosStorage = payload
-    },
-    setAlertGuardarStorage(state,payload){
-      state.alertGuardar = payload
-    },
-
-    setAlertEditarStorage(state,payload){
-      state.alertEditar = payload
-    },
-
-    setAlertBorrarStorage(state,payload){
-      state.alertBorrar = payload
-    },
-
-
+    }
   },
   actions: {
     
@@ -61,9 +40,7 @@ export default createStore({
       commit('setToken', null)
     }
   }
-  }
-
-  
+}
 ,
   modules: {
    

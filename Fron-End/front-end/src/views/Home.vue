@@ -6,11 +6,18 @@
       <Header />
     </header>
     <main>
-      <div class="row container mx-auto">
+      <div class="row container mx-auto d-flex justify-content-center">
+        <div class="container">
+        <Carrucel />
+         <Categorias />
         <Card />
-        <List />
+        </div>
       </div>
+       
     </main>
+    <footer>
+      <Footer/>
+    </footer>
   </div>
 </template>
 
@@ -18,8 +25,11 @@
 <script>
 import Header from "../components/Header";
 import Card from "../components/Cards.vue";
-import List from "../components/List.vue";
+import Carrucel from '../components/Carrucel'
+import Footer from '../components/Footer.vue';
+import Categorias from '../components/Categorias.vue';
+
 export default {
-  components: { Header, Card, List },
+  components: { Header, Card, Carrucel, Footer,Categorias },
 };
 </script>
